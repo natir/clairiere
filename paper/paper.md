@@ -45,7 +45,7 @@ If we have an array of $2^{K+1} - 1$ element:
 
 ![An example of binary search tree of ten intervals](paper/figure/bst.png){label="bst"}
 
-Node of tree store interval information and `max_end` value that correspond to maximal end of interval in subtree of this nodes.
+Node of tree store interval information and `max_end` value that correspond to maximal end of interval in subtree of this nodes. Figure \ref{bst} show an example of BST with node tree struct and corresponding array.
 
 ## Tree quering
 
