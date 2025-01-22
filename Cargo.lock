@@ -207,6 +207,7 @@ dependencies = [
  "rand",
  "rayon",
  "seq-macro",
+ "superintervals",
  "thiserror 2.0.0",
 ]
 
@@ -996,6 +997,12 @@ dependencies = [
  "rustversion",
  "syn 2.0.87",
 ]
+
+[[package]]
+name = "superintervals"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "676dc9c213daf502545b3c93a8a0c5d9ba58a22f5e5cb3d4ee257110b5be7eff"
 
 [[package]]
 name = "syn"

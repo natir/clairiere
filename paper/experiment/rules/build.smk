@@ -79,6 +79,23 @@ rule coitrees_bin:
         """
 
 
+rule superintervals_bin:
+    input:
+        src = examples_path / "superintervals_{type}.rs"
+    output:
+        bin = "bin/superintervals_{type}"
+    params:
+        examples_path = lambda wcd: examples_path
+    log:
+        out = "log/bin/superintervals/{type}.stdout",
+        err = "log/bin/superintervals/{type}.stderr",
+    shell:
+        """
+        cargo build --release --example superintervals_{wildcards.type} 1> {log.out} 2> {log.err}
+        cp {params.examples_path}/../target/release/examples/superintervals_{wildcards.type} {output.bin} 1> {log.out} 2> {log.err}
+        """
+
+
 rule clairiere_bin:
     input:
         src = examples_path / "clairiere_{type}.rs"

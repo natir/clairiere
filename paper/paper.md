@@ -20,13 +20,13 @@ bibliography: paper.bib
 
 Intersection search between sets of intervals is a useful task for many bioinformatics problems, such as finding the regions of interest affected by a variant, or even calculating the coverage of the same type of region.
 
-Several tools already exist to address these issues as bedtools, bedtk, coitrees and iitii. Clairiere reuse idea from bedtk and iitii and implements them in the Rust language to take advantage of its parallelization capabilities, to improve performances in building time.
+Several tools already exist to address these issues, by build and query a binary tree of interval as bedtools, bedtk, coitrees, superintervals and iitii. Clairiere reuse idea from bedtk and iitii and implements them in the Rust language to take advantage of its parallelization capabilities, to improve runtime of tree building.
 
 # Statement of need
 
-To know the impact of a variation in the genome of an individual, it is necessary to determine which biological region it will affect. Biological regions and variant can be represented as intervals in $\mathbb{N}$. With these representations the problem of associate a variant to biological region affected could be see as a trouble to found intersection between an interval and a set of interval.
+To know the impact of a variation in the genome of an individual, it is necessary to determine which biological region it will affect. Biological regions and variant can be represented as intervals in $\mathbb{N}$. With these representations the problem of associate a variant to biological region affected could be see as a trouble to found an intersection between two interval set. A set compose by one interval that represent variant and a set of interval that represent all know annotation on genome.
 
-Bedtk[@bedtk] is a C library that adress this question by implement an implicit binary search tree, iitii[@iitii] reuse same idea but introduce an interpolation index to start binary search from a lower level in tree. But this implementation aren't multi-thread, Clairiere by implement this method in Rust use the capability of paralellisation of these language[@why_rust].
+Bedtk[@bedtk] is a C library that adress this question by implement an implicit binary search tree. iitii[@iitii] reuse same idea but introduce an interpolation index to start binary search from a lower level in tree. Coitree[@coitree] implement a cache aware binary tree[@cache_b_tree] to try solve this issue. But this implementation aren't multi-thread, Clairiere by implement these idea in Rust and try to use the capability of paralellisation of these language[@why_rust].
 
 # Method
 
